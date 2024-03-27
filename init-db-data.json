@@ -1,0 +1,14 @@
+{
+  "settings": [
+    {
+      "name": "username",
+      "label": "Username",
+      "value": "walden"
+    },
+    {
+      "name": "password",
+      "label": "Password",
+      "value": "123456"
+    }
+  ]
+}
