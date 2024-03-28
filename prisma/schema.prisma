@@ -15,11 +15,15 @@ model Settings {
   name  String @unique
   value String
   label String
+
+  @@index([name])
 }
 
 model Post {
   id          Int       @id @default(autoincrement())
   title       String
+  cover       String?
+  description String
   content     String?
   published   Boolean   @default(false)
   publishedAt DateTime?
@@ -32,4 +36,5 @@ model Comment {
   commentBy String?
   content   String
   createdAt DateTime @default(now())
+  postId    Int
 }
