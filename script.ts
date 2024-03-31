@@ -4,11 +4,15 @@ import initData from "./init-db-data.json" assert { type: "json" };
 const prisma = new PrismaClient();
 
 async function main() {
-  const { settings } = initData;
+  const { settings, post, comments } = initData;
 
-  Promise.all(
-    settings.map((setting) => prisma.settings.create({ data: setting }))
-  );
+  prisma.settings.deleteMany();
+  prisma.post.deleteMany();
+  prisma.comment.deleteMany();
+
+  Promise.all(settings.map((data) => prisma.settings.create({ data })));
+  Promise.all(post.map((data) => prisma.post.create({ data })));
+  Promise.all(comments.map((data) => prisma.comment.create({ data })));
 }
 
 main()
